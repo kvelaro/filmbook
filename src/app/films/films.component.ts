@@ -1,3 +1,4 @@
+import { FilmModel } from './../models/film.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./films.component.css']
 })
 export class FilmsComponent implements OnInit {
-
-  constructor() { }
+  constructor() {    
+   }
 
   ngOnInit() {
   }
