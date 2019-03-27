@@ -7,6 +7,7 @@ export class FilmModel {
      genre: string[];
      actors: string[];
      rate: number;
+     duration: number;
      reviews: string[];
      fdate: number;  //film date
      cdate: number; //post create date
@@ -21,7 +22,8 @@ export class FilmModel {
       private images: string[], 
       private genre: string[], 
       private actors: string[],
-      private rate: number, 
+      private rate: number,
+      private duration: number, 
       private reviews: string[], 
       private fdate: number, 
       private cdate: number, 
