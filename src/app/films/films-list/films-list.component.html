@@ -6,7 +6,7 @@
         <h3 class="mb-0">{{ films[i].name }}</h3>
         <div class="mb-1 text-muted">{{ films[i].year }}</div>
         <p class="mb-auto">{{ films[i].description }}</p>
-        <a href="#" class="stretched-link">Read more</a>
+        <a routerLink="/films/{{ films[i + 0].slug }}" class="stretched-link">Read more</a>
       </div>
       <div class="col-auto d-none d-lg-block">
         <img class="img-thumbnail" src="{{ films[i + 1].images[0]}}" />
@@ -20,7 +20,7 @@
         <h3 class="mb-0">{{ films[i + 1].name }}</h3>
         <div class="mb-1 text-muted">{{ films[i + 1].year }}</div>
         <p class="mb-auto">{{ films[i + 1].description }}</p>
-        <a href="#" class="stretched-link">Read more</a>
+        <a routerLink="/films/{{ films[i + 1].slug }}" class="stretched-link">Read more</a>
       </div>
       <div class="col-auto d-none d-lg-block">
         <img class="img-thumbnail" src="{{ films[i + 1].images[0]}}" />

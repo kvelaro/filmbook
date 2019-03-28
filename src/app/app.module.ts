@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
 import { FilmsListComponent } from './films/films-list/films-list.component';
@@ -11,6 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './header/navigation/navigation.component';
 import { BannerComponent } from './films/banner/banner.component';
 import { NgbModule, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NgbModule, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule
   ],
   providers: [NgbDropdown],
   bootstrap: [AppComponent]

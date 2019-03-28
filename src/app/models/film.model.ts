@@ -3,6 +3,7 @@ export class FilmModel {
      name: string;
      lead: string;
      description: string;
+     slug: string;
      images: string[];
      genre: string[];
      actors: string[];
@@ -19,6 +20,7 @@ export class FilmModel {
       private name: string, 
       private lead: string,
       private description: string, 
+      private slug: string,
       private images: string[], 
       private genre: string[], 
       private actors: string[],
