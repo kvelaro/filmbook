@@ -1,3 +1,21 @@
+<div class="col-md-12">
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong class="d-inline-block mb-2 text-info">{{ film.genre }}</strong>
+      <h3 class="mb-0">{{ film.name }}</h3>
+      <div class="mb-1 text-muted">{{ film.year }}</div>
+      <p class="mb-auto">{{ film.description }}</p>
+      <a routerLink="/films/{{ film.slug }}" class="stretched-link">Read more</a>
+    </div>
+    <div class="col-auto d-none d-lg-block">
+      <img class="img-thumbnail" src="{{ film.images[0]}}" />
+    </div>
+  </div>
+</div>
+
+
+<!--
+
 <div class="row">
     <div class="col-md-12">
       <button routerLink="/films" type="button" class="btn btn-secondary">Back</button>
@@ -10,7 +28,7 @@
   </div>
   <div class="col-md-6">
     <div class="row">
-      <p class="h2">Interstellar</p>
+      <p class="h2">{{ film.name }}}</p>
     </div>
     <div class="row">
         <i class="fas fa-star"></i>
@@ -56,3 +74,4 @@
     </div>
   </div>
 </div>
+-->

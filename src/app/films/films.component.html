@@ -1,2 +1,4 @@
 <app-banner></app-banner>
-<app-films-list></app-films-list>
+<div class="row mb-2" *ngFor="let film of films; let i = index;">
+    <app-film [film]="film"></app-film>
+</div>    
