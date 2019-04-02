@@ -33,7 +33,7 @@
     </div>
     <br />
     <div class="row">
-      <p class="description">{{ film.descrtiption }}</p>
+      <p class="description">{{ film.description }}</p>
     </div>
     <div class="row">
         <div class="btn-group" ngbDropdown>
@@ -45,8 +45,8 @@
               Manage
             </button>
             <div class="dropdown-menu" ngbDropdownMenu>
-              <a class="dropdown-item" ngbDropdownItem href="#">Edit</a>
-              <a class="dropdown-item" ngbDropdownItem href="#">Delete</a>
+              <a class="dropdown-item" ngbDropdownItem routerLink="edit">Edit</a>
+              <a class="dropdown-item" ngbDropdownItem routerLink="delete">Delete</a>
             </div>
           </div>
     </div>
