@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { FilmModel } from './../models/film.model';
-import { Observable, from } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmsService {
-  constructor() { }
-
-  getFilms() {
-    return from([
-      new FilmModel(
+  films: FilmModel[] = [
+    new FilmModel(
       'Avengers: Endgame', 
       "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
       "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
@@ -27,8 +24,7 @@ export class FilmsService {
       + new Date(),
       null
     ),
-    new FilmModel(
-      
+    new FilmModel(      
       'Godzilla: King of the Monsters', 
       "The crypto-zoological agency Monarch faces off against a battery of god-sized monsters, including the mighty Godzilla, who collides with Mothra, Rodan, and his ultimate nemesis, the three-headed King Ghidorah.",
       "The crypto-zoological agency Monarch faces off against a battery of god-sized monsters, including the mighty Godzilla, who collides with Mothra, Rodan, and his ultimate nemesis, the three-headed King Ghidorah.",
@@ -36,7 +32,7 @@ export class FilmsService {
       [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
       ['Action', 'Horror'],
       ['Michael Dougherty', ' Zach Shields'],
-      1,
+      3,
       120,
       [],
       + new Date(),
@@ -44,7 +40,20 @@ export class FilmsService {
       + new Date(),
       null
     )    
-  ]);
+  ];
+  constructor() { }
+
+  getFilms() {
+    return from(this.films);    
+  }
+
+  getFilmBySlug(slug) {
+    for(let film of this.films) {
+      if(slug == film.slug) {
+        return of(film);
+      }
+      
+    }
     
   }
 }

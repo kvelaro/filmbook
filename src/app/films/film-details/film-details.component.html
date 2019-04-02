@@ -6,38 +6,34 @@
 <br />
 <div class="row">
   <div class="col-md-6 overflow-hidden">
-    <img class="img-fluid" src="http://img.over-blog-kiwi.com/1/36/64/60/20150323/ob_23a5c4_illuminatiwatcherdotcom-interstellar-m.jpg" />
+    <img class="img-fluid" [src]="film.images[0]" />
   </div>
   <div class="col-md-6">
     <div class="row">
-      <p class="h2">{{ film.name }}}</p>
+      <p class="h2">{{ film.name }}</p>
     </div>
     <div class="row">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
+        <i *ngFor="let star of stars" class="fas fa-star"></i> ({{ film.rate }})
     </div>
     <br/>
     <div class="row">
         <div class="col-md-4">
-          <p class="h6">2019</p>
+          <p class="h6">{{ film.year }}</p>
         </div>
         <div class="col-md-4">
-            <p class="h6">160 min</p>
+            <p class="h6">{{ film.duration }}</p>
         </div>
         <div class="col-md-4">
-          <p class="h6">Drama | Fiction</p>
+          <p class="h6">{{ film.genre }}</p>
         </div>
     </div>
     <br />
     <div class="row">
-        <p class="h6">Elena Mallovich, David Kristofer, ....</p>
+        <p class="h6">{{ film.actors }}</p>
     </div>
     <br />
     <div class="row">
-      <p class="description">rgasdgsdg;nsdma;gl l;sdnglsadng ldsna gldsngsdnagl nlnda lnglndls anldsnglndsalgndskngkjsbkgh as</p>
+      <p class="description">{{ film.descrtiption }}</p>
     </div>
     <div class="row">
         <div class="btn-group" ngbDropdown>
