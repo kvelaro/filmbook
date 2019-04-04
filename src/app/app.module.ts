@@ -12,6 +12,9 @@ import { BannerComponent } from './films/banner/banner.component';
 import { NgbModule, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { FilmDetailsComponent } from './films/film-details/film-details.component';
 import { FilmsListComponent } from './films/films-list/films-list.component';
+import { GenresComponent } from './genres/genres.component';
+import { GenresListComponent } from './genres/genres-list/genres-list.component';
+import { GenreFilmsComponent } from './genres/genre-films/genre-films.component';
 
 
 @NgModule({
@@ -21,6 +24,9 @@ import { FilmsListComponent } from './films/films-list/films-list.component';
     FilmsListComponent,
     FilmComponent,
     FilmDetailsComponent,
+    GenresComponent,
+    GenresListComponent,
+    GenreFilmsComponent,
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
