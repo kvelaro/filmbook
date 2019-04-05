@@ -8,7 +8,7 @@ import { GenreModel } from 'src/app/models/genre.model';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-  genres: string[] = [];
+  genres: GenreModel[] = [];
   constructor(private genreService: GenreService) { }
 
   ngOnInit() {
