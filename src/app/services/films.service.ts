@@ -1,48 +1,41 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { FilmModel } from './../models/film.model';
 import { Observable, from, of } from 'rxjs';
+import { FilmsData } from './films.data';
+import { GenreService } from './genre.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmsService {
-  films: FilmModel[] = [
-    new FilmModel(
-      'Avengers: Endgame', 
-      "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
-      "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
-      "avengers-endgame",
-      [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
-      ['Action', 'Adventure', 'Fantasy'],
-      ['Christopher Markus', 'Stephen McFeely'],
-      4.5,
-      160,
-      [],
-      + new Date(),
-      + new Date(),
-      + new Date(),
-      null
-    ),
-    new FilmModel(      
-      'Godzilla: King of the Monsters', 
-      "The crypto-zoological agency Monarch faces off against a battery of god-sized monsters, including the mighty Godzilla, who collides with Mothra, Rodan, and his ultimate nemesis, the three-headed King Ghidorah.",
-      "The crypto-zoological agency Monarch faces off against a battery of god-sized monsters, including the mighty Godzilla, who collides with Mothra, Rodan, and his ultimate nemesis, the three-headed King Ghidorah.",
-      "godzilla-king-of-the-monsters",
-      [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
-      ['Action', 'Horror'],
-      ['Michael Dougherty', ' Zach Shields'],
-      3,
-      120,
-      [],
-      + new Date(),
-      + new Date(),
-      + new Date(),
-      null
-    )    
-  ];
-  constructor() { }
-
+  films: FilmModel[] = [];
+  
+  constructor(private genreService: GenreService) {
+    let filmsData = new FilmsData();
+    let filmsDataArr: any[] = filmsData.getData();
+    filmsDataArr.forEach(element => {
+      let filmModel = new FilmModel(
+        element.name, 
+        element.lead, 
+        element.description, 
+        element.slug, 
+        [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
+        this.genreService.getRandomGenres(),
+        element.actors, 
+        element.rate, 
+        element.duration, 
+        element.reviews,
+        element.fdate,
+        element.cdate, 
+        element.udate, 
+        element.pdate
+      );
+      this.films.push(filmModel);      
+    });
+    
+  }
+  
   getFilms() {
     return from(this.films);    
   }
@@ -52,8 +45,18 @@ export class FilmsService {
       if(slug == film.slug) {
         return of(film);
       }
-      
     }
-    
+  }
+
+  getFilmsByGenreSlug(slug) {
+    let oneGenreFilms = [];
+    for(let film of this.films) {
+      for(let genre of film.genre) {
+        if(slug == genre.slug) {
+          oneGenreFilms.push(film);          
+        }
+      }
+    }
+    return from(oneGenreFilms);
   }
 }

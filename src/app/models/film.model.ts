@@ -22,7 +22,7 @@ export class FilmModel {
       private description: string, 
       public slug: string,
       private images: string[], 
-      private genre: string[], 
+      public genre: string[], 
       private actors: string[],
       public rate: number,
       private duration: number, 

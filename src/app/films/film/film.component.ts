@@ -8,12 +8,18 @@ import { FilmModel } from './../../models/film.model';
 })
 export class FilmComponent implements OnInit {
   @Input() film: FilmModel;
+  filmGenres: string = '';
   constructor() {
     
    }
 
   ngOnInit() {
-    
+    this.film.genre.forEach(element => {
+      if(this.filmGenres.length > 0) {
+        this.filmGenres += ', ';
+      }
+      this.filmGenres += element.name;
+    })
   }
 
 }

@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class FilmDetailsComponent implements OnInit {
   film: FilmModel = null;
   stars: number[] = [];
+  filmGenres: string = '';
   constructor(
     private filmsService: FilmsService,
     private route: ActivatedRoute
@@ -24,6 +25,12 @@ export class FilmDetailsComponent implements OnInit {
         this.film = film;
         let rate = Math.floor(film.rate);
         this.stars = Array(rate).fill(rate).map((x, i) => i);
+        this.film.genre.forEach(element => {
+          if(this.filmGenres.length > 0) {
+            this.filmGenres += ', ';
+          }
+          this.filmGenres += element.name;
+        })
       })
     });
   }
