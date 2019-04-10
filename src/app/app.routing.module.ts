@@ -7,11 +7,13 @@ import { FilmsListComponent } from './films/films-list/films-list.component';
 import { GenresComponent } from './genres/genres.component';
 import { GenresListComponent } from './genres/genres-list/genres-list.component';
 import { GenreFilmsComponent } from './genres/genre-films/genre-films.component';
+import { NewFilmComponent } from './films/new-film/new-film.component';
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/films', pathMatch: 'full' },
     { path: 'films', component: FilmsComponent, children: [
         { path: '', component: FilmsListComponent },
+        { path: 'new', component: NewFilmComponent },
         { path: ':slug', component: FilmDetailsComponent }
     ]},
     { path: 'genre', component: GenresComponent, children: [

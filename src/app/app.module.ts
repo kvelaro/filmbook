@@ -15,6 +15,7 @@ import { FilmsListComponent } from './films/films-list/films-list.component';
 import { GenresComponent } from './genres/genres.component';
 import { GenresListComponent } from './genres/genres-list/genres-list.component';
 import { GenreFilmsComponent } from './genres/genre-films/genre-films.component';
+import { NewFilmComponent } from './films/new-film/new-film.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { GenreFilmsComponent } from './genres/genre-films/genre-films.component'
     HeaderComponent,
     FooterComponent,
     NavigationComponent,
-    BannerComponent
+    BannerComponent,
+    NewFilmComponent
   ],
   imports: [
     BrowserModule,
