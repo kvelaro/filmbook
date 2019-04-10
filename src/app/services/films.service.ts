@@ -51,7 +51,8 @@ export class FilmsService {
   getFilmsByGenreSlug(slug) {
     let oneGenreFilms = [];
     for(let film of this.films) {
-      for(let genre of film.genre) {
+      let genre: any;
+      for(genre of film.genre) {
         if(slug == genre.slug) {
           oneGenreFilms.push(film);          
         }

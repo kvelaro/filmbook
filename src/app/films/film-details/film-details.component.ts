@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilmModel } from '../../models/film.model';
 import { FilmsService } from './../../services/films.service';
 import { ActivatedRoute } from '@angular/router';
+import { GenreModel } from 'src/app/models/genre.model';
 
 @Component({
   selector: 'app-film-details',
@@ -25,12 +26,13 @@ export class FilmDetailsComponent implements OnInit {
         this.film = film;
         let rate = Math.floor(film.rate);
         this.stars = Array(rate).fill(rate).map((x, i) => i);
-        this.film.genre.forEach(element => {
+        let genre:any;
+        for(genre of film.genre) {
           if(this.filmGenres.length > 0) {
             this.filmGenres += ', ';
           }
-          this.filmGenres += element.name;
-        })
+          this.filmGenres += genre.name;
+        }        
       })
     });
   }

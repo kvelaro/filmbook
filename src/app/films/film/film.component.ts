@@ -14,12 +14,13 @@ export class FilmComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.film.genre.forEach(element => {
+    let genre: any;
+    for(genre of this.film.genre) {
       if(this.filmGenres.length > 0) {
         this.filmGenres += ', ';
       }
-      this.filmGenres += element.name;
-    })
+      this.filmGenres += genre.name;
+    }
   }
 
 }
