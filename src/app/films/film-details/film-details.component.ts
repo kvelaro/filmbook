@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FilmModel } from '../../models/film.model';
 import { FilmsService } from './../../services/films.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GenreModel } from 'src/app/models/genre.model';
 
 @Component({
@@ -15,6 +15,7 @@ export class FilmDetailsComponent implements OnInit {
   filmGenres: string = '';
   constructor(
     private filmsService: FilmsService,
+    private router : Router,
     private route: ActivatedRoute
   ) {
       
@@ -35,6 +36,18 @@ export class FilmDetailsComponent implements OnInit {
         }        
       })
     });
+  }
+
+  onDelete(filmObj) {
+    let deleted = this.filmsService.delete(filmObj);
+    if(deleted == true) {
+      this.router.navigate(['/films']);
+    }
+    else {
+      alert('Something went wrong');
+      return false;
+    }
+    
   }
 
 }

@@ -11,7 +11,7 @@ import { GenreService } from './genre.service';
 export class FilmsService {
   films: FilmModel[] = [];
   
-  constructor(private genreService: GenreService) {
+  constructor(private genreService: GenreService) {console.log('111');
     let filmsData = new FilmsData();
     let filmsDataArr: any[] = filmsData.getData();
     filmsDataArr.forEach(element => {
@@ -59,5 +59,15 @@ export class FilmsService {
       }
     }
     return from(oneGenreFilms);
+  }
+
+  delete(film) {
+    let i: number;
+    let index = this.films.indexOf(film);
+    if(index != -1) {
+      this.films.splice(index, 1);
+      return true;
+    }
+    return false;
   }
 }

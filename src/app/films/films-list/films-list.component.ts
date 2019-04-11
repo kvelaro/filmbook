@@ -9,12 +9,11 @@ import { FilmsService } from './../../services/films.service';
 })
 export class FilmsListComponent implements OnInit {
   @Output() films: FilmModel[] = [];
-  constructor(private filmsService: FilmsService) {
-    
+  constructor(private filmsService: FilmsService) {    
    }
 
   ngOnInit() {
-    this.filmsService.getFilms().subscribe(film => {      
+    this.filmsService.getFilms().subscribe(film => {
       this.films.push(film);
     });
   }

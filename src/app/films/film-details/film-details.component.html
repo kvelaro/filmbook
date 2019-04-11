@@ -46,7 +46,7 @@
             </button>
             <div class="dropdown-menu" ngbDropdownMenu>
               <a class="dropdown-item" ngbDropdownItem routerLink="edit">Edit</a>
-              <a class="dropdown-item" ngbDropdownItem routerLink="delete">Delete</a>
+              <a class="dropdown-item" ngbDropdownItem (click)="onDelete(film)">Delete</a>
             </div>
           </div>
     </div>
