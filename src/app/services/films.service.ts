@@ -3,6 +3,7 @@ import { FilmModel } from './../models/film.model';
 import { Observable, from, of } from 'rxjs';
 import { FilmsData } from './films.data';
 import { GenreService } from './genre.service';
+import { ActorService } from './actor.service';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import { GenreService } from './genre.service';
 export class FilmsService {
   films: FilmModel[] = [];
   
-  constructor(private genreService: GenreService) {console.log('111');
+  constructor(private genreService: GenreService, private actorService: ActorService) {
     let filmsData = new FilmsData();
     let filmsDataArr: any[] = filmsData.getData();
     filmsDataArr.forEach(element => {
@@ -22,7 +23,7 @@ export class FilmsService {
         element.slug, 
         [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`),
         this.genreService.getRandomGenres(),
-        element.actors, 
+        this.actorService.getRandomActors(),
         element.rate, 
         element.duration, 
         element.reviews,
@@ -30,7 +31,7 @@ export class FilmsService {
         element.cdate, 
         element.udate, 
         element.pdate
-      );
+      );      
       this.films.push(filmModel);      
     });
     

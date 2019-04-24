@@ -13,6 +13,7 @@ export class FilmDetailsComponent implements OnInit {
   film: FilmModel = null;
   stars: number[] = [];
   filmGenres: string = '';
+  filmActors: string = '';
   constructor(
     private filmsService: FilmsService,
     private router : Router,
@@ -24,16 +25,24 @@ export class FilmDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(x => {
       this.filmsService.getFilmBySlug(x.slug).subscribe(film => {
+        console.log(film)
         this.film = film;
         let rate = Math.floor(film.rate);
         this.stars = Array(rate).fill(rate).map((x, i) => i);
-        let genre:any;
+        let genre: any;
+        let actor: any;
         for(genre of film.genre) {
           if(this.filmGenres.length > 0) {
             this.filmGenres += ', ';
           }
-          this.filmGenres += genre.name;
-        }        
+          this.filmGenres += genre.name;          
+        }
+        for(actor of film.actors) {
+          if(this.filmActors.length > 0) {
+            this.filmActors += ', ';
+          }
+          this.filmActors += actor.name;          
+        }
       })
     });
   }
@@ -46,8 +55,7 @@ export class FilmDetailsComponent implements OnInit {
     else {
       alert('Something went wrong');
       return false;
-    }
-    
+    }    
   }
 
 }

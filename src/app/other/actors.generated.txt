@@ -1,0 +1,11 @@
+[
+    '{{repeat(1, 100)}}',
+    {
+      name: '{{firstName()}} {{surname()}}',
+      slug: '{{lorem(1, "words")}}',      
+      popularity: '{{integer(1,10)}}',
+      cdate: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss")}}',
+      udate: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss")}}',
+      pdate: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss")}}',    
+    }
+  ]

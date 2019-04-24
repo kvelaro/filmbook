@@ -1,0 +1,63 @@
+<form #filmForm="ngForm" (ngSubmit)="onSubmit(filmForm)">
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="fname" [(ngModel)]="film.name">
+      </div>
+      <div class="form-group col-md-6">
+          <label for="slug">Slug</label>
+          <input type="text" class="form-control" id="slug" name="fslug" [(ngModel)]="film.slug">
+      </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="lead">Lead</label>
+        <textarea class="form-control" id="lead" rows="3" name="flead" [(ngModel)]="film.lead"></textarea>
+      </div>
+      <div class="form-group col-md-6">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="3" name="fdescription" [(ngModel)]="film.description"></textarea>
+      </div>
+  </div>  
+  <div class="form-row">      
+    <div class="form-group col-md-11">
+        <label for="images" class="sr-only">Images</label>
+        <input 
+          *ngFor="let image of film.images"
+          type="text" 
+          class="form-control" 
+          id="images" 
+          placeholder="Image"
+          name="fimage"
+          [(ngModel)]="image"
+          >
+    </div>
+    <button type="button" class="btn btn-secondary mb-4">+</button>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="genres">Genre</label>
+      <input type="text" class="form-control" id="genres" name="fgenres" [(ngModel)]="filmGenres">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="actors">Actors</label>
+        <input type="text" class="form-control" id="actors" name="factors" [(ngModel)]="filmActors">
+    </div>
+  </div>
+  <div class="form-row">
+      <div class="form-group col-md-2">
+          <label for="duration">Duration</label>
+          <input type="number" class="form-control" id="duration" min="1" name="fduration" [(ngModel)]="film.duration">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="fdate">Film date</label>
+            <input type="text" class="form-control" id="fdate" name="fdate" [(ngModel)]="filmDate">
+        </div>
+        <div class="form-group col-md-5">
+            <label for="pdate">Publish date</label>
+            <input type="text" class="form-control" id="pdate" name="pdate" [(ngModel)]="publishDate">
+        </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-secondary" routerLink="/films/{{ film.slug }}">Cancel</button>
+</form>

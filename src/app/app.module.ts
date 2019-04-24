@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { GenresComponent } from './genres/genres.component';
 import { GenresListComponent } from './genres/genres-list/genres-list.component';
 import { GenreFilmsComponent } from './genres/genre-films/genre-films.component';
 import { NewFilmComponent } from './films/new-film/new-film.component';
+import { FilmDetailsEditComponent } from './films/film-details-edit/film-details-edit.component';
 
 
 @NgModule({
@@ -32,9 +34,11 @@ import { NewFilmComponent } from './films/new-film/new-film.component';
     FooterComponent,
     NavigationComponent,
     BannerComponent,
-    NewFilmComponent
+    NewFilmComponent,
+    FilmDetailsEditComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     NgbModule,

@@ -23,13 +23,13 @@ export class FilmModel {
       public slug: string,
       private images: string[], 
       public genre: string[], 
-      private actors: string[],
+      public actors: string[],
       public rate: number,
       private duration: number, 
       private reviews: string[], 
-      private fdate: number, 
+      public fdate: number, 
       private cdate: number, 
       private udate: number, 
-      private pdate: number
+      public pdate: number
   ) {} 
 }
