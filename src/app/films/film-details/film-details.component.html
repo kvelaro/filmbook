@@ -46,9 +46,19 @@
             </button>
             <div class="dropdown-menu" ngbDropdownMenu>
               <a class="dropdown-item" ngbDropdownItem routerLink="edit">Edit</a>
-              <a class="dropdown-item" ngbDropdownItem (click)="onDelete(film)">Delete</a>
+              <a class="dropdown-item" ngbDropdownItem (click)="onDelete()">Delete</a>
             </div>
           </div>
-    </div>
+    </div>    
+  </div>
+  <hr>
+  <div class="row" *ngFor="let review of film.reviews">
+      <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">{{ review.name }} wrote:</h4>
+          <p>{{ review.text }}</p>
+          <hr>
+          <button type="button" class="btn btn-primary">Edit</button> 
+          <button type="button" class="btn btn-secondary" (click)="onReviewDelete(review)">Delete</button> 
+        </div>
   </div>
 </div>

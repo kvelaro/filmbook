@@ -26,7 +26,7 @@ export class FilmModel {
       public actors: string[],
       public rate: number,
       private duration: number, 
-      private reviews: string[], 
+      public reviews: string[], 
       public fdate: number, 
       private cdate: number, 
       private udate: number, 

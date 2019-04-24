@@ -48,7 +48,7 @@ export class FilmDetailsComponent implements OnInit {
   }
 
   onDelete(filmObj) {
-    let deleted = this.filmsService.delete(filmObj);
+    let deleted = this.filmsService.delete(this.film);
     if(deleted == true) {
       this.router.navigate(['/films']);
     }
@@ -56,6 +56,13 @@ export class FilmDetailsComponent implements OnInit {
       alert('Something went wrong');
       return false;
     }    
+  }
+  onReviewDelete(reviewObj) {    
+    let i: number;
+    let index = this.film.reviews.indexOf(reviewObj);
+    if(index != -1) {
+      this.film.reviews.splice(index, 1);      
+    }
   }
 
 }
