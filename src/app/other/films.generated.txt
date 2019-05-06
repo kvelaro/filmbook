@@ -5,14 +5,14 @@
       name: '{{lorem(integer(1,3), "words")}}',
       lead: '{{lorem(10, "words")}}',
       description: '{{lorem(1, "paragraphs")}}',
-      slug: '{{bool()}}',
-      actors: ['{{repeat(1, 5)}}','{{firstName()}} {{surname()}}'],
+      slug: '{{lorem(1, "words")}}',
       rate: '{{floating(0.0, 10.0)}}',
       duration: '{{integer(20, 160)}}',
       reviews: [
         '{{repeat(1, 5)}}',
         {
-            name: '{{firstName()}} {{surname()}}',
+          id: '{{index(1)}}',
+          name: '{{firstName()}} {{surname()}}',
           text: '{{lorem(1, "paragraphs")}}'
         }
       ],

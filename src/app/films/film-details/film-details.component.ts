@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FilmModel } from '../../models/film.model';
 import { FilmsService } from './../../services/films.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GenreModel } from 'src/app/models/genre.model';
+import { userInfo } from 'os';
 
 @Component({
   selector: 'app-film-details',
@@ -14,6 +15,7 @@ export class FilmDetailsComponent implements OnInit {
   stars: number[] = [];
   filmGenres: string = '';
   filmActors: string = '';
+  editReview: boolean = false;
   constructor(
     private filmsService: FilmsService,
     private router : Router,
@@ -63,6 +65,26 @@ export class FilmDetailsComponent implements OnInit {
     if(index != -1) {
       this.film.reviews.splice(index, 1);      
     }
+    //@todo must send to service
+  }
+
+  onReviewClicked(reviewObj) {
+    this.editReview = true;
+  }
+  
+  onReviewSubmit(reviewForm) {
+    let i: number;
+    let filmReviews: any = this.film.reviews;
+    filmReviews.forEach(element => {
+      if(element.id == reviewForm.value.id) {
+        element.text = reviewForm.value.text;
+      }
+    });
+    this.editReview = false;
+  }
+
+  onReviewSave(reviewText) {
+    console.log(reviewText);    
   }
 
 }
